@@ -622,7 +622,7 @@ namespace distance {
     }
 
 
-    //% block
+     //% blockId="initialisation distance"
     export function init() {
         while (getID() != 235) {
             writeRegister16(0x0000, 0x01); // Soft reset
@@ -746,8 +746,8 @@ namespace distance {
     // note that Caml casing yields lower case
     // block text with spaces
 
-    //% block
-    export function getDistance(): number {
+    //% blockId="distance en mm"
+    export function getDistanc(): number {
         let result = readRegister(0x96, 2);
         return (result[0] << 8) | result[1];
     }
