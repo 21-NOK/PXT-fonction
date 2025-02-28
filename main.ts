@@ -40,7 +40,7 @@ enum NeoPixelMode {
  * Functions to operate NeoPixel strips.
  */
 //% weight=5 color=#0000FF icon="\uf110"
-namespace LED {
+namespace Anneau_LED {
     /**
      * A NeoPixel strip
      */
@@ -165,7 +165,7 @@ namespace LED {
                 for (let i = 0; i < n; ++i) {
                     if (i <= v) {
                         const b = Math.idiv(i * 255, n1);
-                        this.setPixelColor(i, LED.rgb(b, 0, 255 - b));
+                        this.setPixelColor(i, Anneau_LED.rgb(b, 0, 255 - b));
                     }
                     else this.setPixelColor(i, 0);
                 }
@@ -622,8 +622,8 @@ namespace distance {
     }
 
 
-     //% blockId="initialisation distance"
-    export function init() {
+     //% block
+    export function initalisation_distance() {
         while (getID() != 235) {
             writeRegister16(0x0000, 0x01); // Soft reset
             basic.pause(100); // Attendre que le capteur redémarre
@@ -746,8 +746,8 @@ namespace distance {
     // note that Caml casing yields lower case
     // block text with spaces
 
-    //% blockId="distance en mm"
-    export function getDistanc(): number {
+    //% block
+    export function distance_en_mm(): number {
         let result = readRegister(0x96, 2);
         return (result[0] << 8) | result[1];
     }
